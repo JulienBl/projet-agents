@@ -1,0 +1,71 @@
+ul{
+    list-style: none;
+}
+.background-color-blanc{
+    background-color: white;
+    border: 1px solid black;
+    padding: 25px auto;
+}
+/*Menu*/
+
+#menu{
+    background-color: #010101;
+}
+#menu #logo{
+    width: 45%;
+
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color:white;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color:yellow;
+}
+
+
+
+/*Footer*/
+
+footer{
+    height: 30vh;
+    background-color: #010101;
+    color: white
+}
+footer #logo{
+    width: 95%;
+}
+
+
+
+
+/*Accueil*/
+body{
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(228,228,228,1) 100%, rgba(0,212,255,1) 100%);
+}
+
+
+
+.menu-photo-agent .container-agent img{
+    width: 50%;
+    z-index: 9;
+}
+
+.menu-photo-agent .container-agent #img-prochainement{
+    margin-top: 10px;
+}
+
+.menu-photo-agent .container-agent #img-enregistrement{
+    margin-top: -15px;
+}
+
+
+
+
+@media (min-width: 768px){
+    .navbar-expand-md .navbar-nav .dropdown-menu {
+        position: initial; 
+   }
+}
