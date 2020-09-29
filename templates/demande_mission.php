@@ -9,27 +9,23 @@
    
     <div>
         <h2>Choix de mission</h2>
-
+        
         <form method="post" action="index.php?route=choix_mission">           
-            <select name="mission" id="mission-select">
+            <select name="missionId" id="mission-select">
                 <option value="">Choisissez votre mission</option>
-                <option value="mission1">Mission pour débuter</option>
-                <input type="submit" value="Valider" />                
-            </select>        
+                    <?php 
+                        foreach($missions as $mission){
+                    ?>
+                        <option value="<?php echo htmlspecialchars($mission->getId());?>"> <?php echo htmlspecialchars($mission->getTitre()); ?>  </option>
+                    <?php
+                    } 
+                    ?>       
+            </select>  
+            <input name="mission" type="submit" value="Valider"/>        
         </form>
     </div>
 </div>
 
-
-<?php
-
-
-
-
-
-
-
-?>
 
 
 

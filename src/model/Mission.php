@@ -17,7 +17,12 @@ class Mission
     /**
      * @var string
      */
-    private $objectif;      
+    private $objectif;
+    
+    /**
+     * @var string
+     */
+    private $code;
 
     /**
      * @return int
@@ -67,5 +72,19 @@ class Mission
         $this->objectif = $objectif;
     }
 
-   
+    /**
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+    
+    /**
+     * @param string $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }     
 }

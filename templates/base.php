@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
         <title>Projet Agents</title>
-        <base href="http://localhost/projet-agents/public/"> <!--LOCAL-->  
+        <base href="http://localhost/projet-agents/"> <!--LOCAL-->  
         <!--<base href="http://projet-agents.dgwww.fr/public/"> public-->
         <link rel="stylesheet" href="css/style.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />

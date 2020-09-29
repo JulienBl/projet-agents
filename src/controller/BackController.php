@@ -94,17 +94,5 @@ class BackController extends Controller
             $this->session->set($param, 'Votre compte a bien été supprimé');
         }
         header('Location: index.php');
-    }
-
-   /* public function editMission(Parameter $post, $missionId)
-    {
-        if($this->checkAdmin()) {
-            $mission = $this->missionDAO->getMission($missionId);
-            
-            $post->set('id', $mission->getId());
-            $post->set('titre', $mission->getTitre());
-            $post->set('objectif', $mission->getObjectif());       
-            
-        }
-    }*/
+    }   
 }

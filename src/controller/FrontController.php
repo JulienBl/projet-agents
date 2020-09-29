@@ -11,11 +11,6 @@ class FrontController extends Controller
         return $this->view->render('home');
     } 
 
-
-
-
-
-
     public function mission()
     {        
         $missions = $this->missionDAO->getMissions();               
@@ -24,20 +19,12 @@ class FrontController extends Controller
         ]);
     }
     public function choix_mission($missionId)
-    {
+    {        
         $mission = $this->missionDAO->getMission($missionId);        
         return $this->view->render('choix_mission', [
             'mission' => $mission,            
         ]);
-    }
-
-
-
-
-
-
-    
-   
+    }  
 
     public function register(Parameter $post)
     {
@@ -70,16 +57,18 @@ class FrontController extends Controller
         
         return $this->view->render('meteo');
     }
-    public function soon(Parameter $post)
+    public function soon()
     {
         
         return $this->view->render('soon');
     }
 
-    public function demande_mission(Parameter $post)
-    {
-        
-        return $this->view->render('demande_mission');
+    public function demande_mission()
+    {        
+        $missions = $this->missionDAO->getMissionCommencement();               
+        return $this->view->render('demande_mission', [
+            'missions' => $missions,            
+        ]);
     }
     
 
