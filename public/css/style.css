@@ -1,3 +1,4 @@
+
 ul{
     list-style: none;
 }
@@ -17,14 +18,21 @@ ul{
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color:white;
+    color:white !important;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-    color:yellow;
+    color:yellow !important;
 }
 
-
+.margin-top-bot{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.navbar-light .navbar-toggler {
+    color: white !important;
+    border-color: yellow !important;
+}
 
 /*Footer*/
 
@@ -36,8 +44,21 @@ footer{
 footer #logo{
     width: 95%;
 }
+footer li a {
+    color: white;
+}
+footer li a:hover {
+    color: yellow;
+}
 
-
+@media (max-width: 576px){
+    footer{
+        height: auto;
+    }
+    footer p{
+        margin-bottom: 0px;
+    }
+}
 
 
 /*Accueil*/
@@ -46,7 +67,9 @@ body{
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(228,228,228,1) 100%, rgba(0,212,255,1) 100%);
 }
 
-
+#presentation-projet-agents{
+    padding-bottom: 100px;
+}
 
 .menu-photo-agent .container-agent img{
     width: 50%;
@@ -66,6 +89,23 @@ body{
 
 @media (min-width: 768px){
     .navbar-expand-md .navbar-nav .dropdown-menu {
-        position: initial; 
+        position: initial !important; 
    }
+    .navbar-expand-md .navbar-nav .dropdown-menu a {
+        color: black; 
+    }
+    .navbar-expand-md .navbar-nav .dropdown-menu a:hover {
+        color: #A33246; 
+    }
+}
+
+
+
+#nouveau-projet{
+    margin-top: 100px;
+    padding-bottom: 100px;
+}
+
+#nouveau-projet img{
+    width: 100%;
 }

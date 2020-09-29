@@ -16,8 +16,11 @@
                                             <a class="nav-link" href="index.php"> Accueil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="index.php?route=mission"> Mission</a>
-                                        </li> 
+                                            <a class="nav-link" href="index.php?route=demande_mission"> Mission</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="index.php?route=soon"> Prochainement</a>
+                                        </li>  
                                         <li class="nav-item">
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Profile de l'agent <?= $this->session->get('pseudo'); ?>
@@ -34,7 +37,8 @@
                                                     <?php
                                                 } else {
                                                     ?>
-                                                    <a href="index.php?route=register">Inscription</a>                                                    
+                                                    <a href="index.php?route=register">Inscription</a> <br/>
+                                                    <a href="index.php?route=login">Connexion</a>                                                    
                                                     <?php
                                                 }
                                                 ?>                                     

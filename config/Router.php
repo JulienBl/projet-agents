@@ -34,21 +34,24 @@ class Router
                 elseif($route === 'meteo'){
                     $this->frontController->meteo($this->request->getPost());
                 }
+                elseif($route === 'soon'){
+                    $this->frontController->soon($this->request->getPost());
+                }
                 elseif($route === 'accueil_agents' || $route === ''){
                     $this->frontController->accueil_agents($this->request->getPost());
                 }
-                elseif($route === 'choix_mission'){
-                    $this->frontController->choix_mission($this->request->getPost());
+                elseif($route === 'choix_mission'){                     
+                    $this->frontController->choix_mission($this->request->getGet()->get('missionId'));
                 }
-                elseif($route === 'mission'){
-                    $this->frontController->mission($this->request->getPost());
-                }
-                elseif($route === 'mission'){
-                    $this->frontController->mission($this->request->getGet()->get('missionId'));
-                }
+                elseif($route === 'demande_mission'){
+                    $this->frontController->demande_mission($this->request->getPost());
+                }               
                 /*elseif($route === 'editMission'){
                     $this->backController->editMission($this->request->getPost(), $this->request->getGet()->get('missionId'));
-                } */              
+                } */
+                elseif($route === 'login'){
+                    $this->frontController->login($this->request->getPost());
+                }              
                 elseif($route === 'profile'){
                     $this->backController->profile();
                 }

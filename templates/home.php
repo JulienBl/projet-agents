@@ -22,16 +22,16 @@
 
         <div class=" menu-photo-agent">
             <div class="row text-center">
-                <div class="col-4 container-agent">                            
-                    <a href="index.php?route=mission"><img src="img/mission-secret.png" alt="Mission secret"></a>
+                <div class="col-12 col-md-4 container-agent">                            
+                    <a href="index.php?route=demande_mission"><img src="img/mission-secret.png" alt="Mission secret"></a>
                 </div>      
 
-                <div class="col-4 container-agent">                            
-                    <a href="index.php"><img src="img/prochainement.jpg" alt="Prochainement" id="img-prochainement"></a>
+                <div class="col-12 col-md-4 container-agent">                            
+                    <a href="index.php?route=soon"><img src="img/prochainement.jpg" alt="Prochainement" id="img-prochainement"></a>
                 </div>
 
-                <div class="col-4 container-agent">                            
-                    <a href="index.php?route=register"><img src="img/enregistrement.png" alt="La météo" id="img-enregistrement"></a>
+                <div class="col-12 col-md-4 container-agent">                            
+                    <a href="index.php?route=register"><img src="img/enregistrement.png" alt="S'enregistrer" id="img-enregistrement"></a>
                 </div>
             </div>   
         </div>
