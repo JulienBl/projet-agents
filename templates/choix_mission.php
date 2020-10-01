@@ -10,8 +10,8 @@
 <?= $this->session->show('valid_code'); ?>
     <form method="post" action="index.php?route=choix_mission">
                 
-        <input type="code" id="code" name="code" placeholder="Rentrer le code">
-        <input type="submit" value="Envoyer le code" id="submit" name="submit">
+        <input class="custom-input" type="code" id="code" name="code" placeholder="Rentrer le code">
+        <input class="btn btn-agent" type="submit" value="Envoyer" id="submit" name="submit">
     </form>
 
 

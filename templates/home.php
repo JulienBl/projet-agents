@@ -30,18 +30,13 @@
                     <a href="index.php?route=soon"><img src="img/prochainement.jpg" alt="Prochainement" id="img-prochainement"></a>
                 </div>
 
-                <div class="col-12 col-md-4 container-agent">                            
-                    <a href="index.php?route=register"><img src="img/enregistrement.png" alt="S'enregistrer" id="img-enregistrement"></a>
+                <div class="col-12 col-md-4 container-agent">
+                <div id="container"></div> 
                 </div>
             </div>   
         </div>
-    </div>
-
-
-    
+    </div>    
 </div>
-
-
 
 
 

@@ -1,3 +1,96 @@
+/*Perso*/
+h1{
+    margin-top: 25px;
+    margin-bottom: 50px;
+    text-align: center;
+    color: #6C6C6C;
+}
+
+h2{
+    margin-top: 15px;
+    margin-bottom: 30px;    
+    color: #898989;
+}
+
+.custom-select{
+  position: relative;
+  display: block;
+  max-width: 400px;
+  min-width: 180px;
+  margin: 0 auto;
+  border: 1px solid  rgba(228,228,228,1);
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(228,228,228,1) 100%, rgba(0,212,255,1) 100%);
+  z-index: 10;
+
+}
+  
+  
+  select{
+    border: none;
+    outline: none;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    margin: 0;
+    display: block;
+    width: 100%;
+    padding: 12px 55px 15px 15px;
+    font-size: 14px;
+    color: #714BB9;
+
+  }
+    
+  
+  select:after{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    line-height: 38px;
+    content: '\2228';
+    text-align: center;
+    color: #714BB9;
+    font-size: 24px;
+    border-left: 1px solid #3C1C78;
+    z-index: -1;
+
+  }
+    
+
+  .custom-input{
+    position: relative;
+    display: block;
+    max-width: 400px;
+    min-width: 180px;
+    margin: 30px auto 0 auto;
+    border: 1px solid  rgba(228,228,228,1);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(228,228,228,1) 100%, rgba(0,212,255,1) 100%);
+    z-index: 10;
+  }
+  
+
+
+.btn-agent{
+    position: relative;
+    display: block;
+    width:85px;
+    height:85px;
+    margin: 25px auto;
+	background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(228,228,228,1) 100%, rgba(0,212,255,1) 100%);
+	box-shadow:2px 2px 8px #aaa;
+	font:bold 13px Arial;
+	border-radius:50% !important;
+	color:#555;
+}
+.btn-agent:hover{
+    transition-duration: 2s;   
+	background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(228,228,228,1) 100%, rgba(0,212,255,1) 100%);
+	color:#555;
+}
+
 
 ul{
     list-style: none;
@@ -7,6 +100,24 @@ ul{
     border: 1px solid black;
     padding: 50px;
 }
+
+.a-animation{
+    background: linear-gradient(to bottom, var(--mainColor) 0%, var(--mainColor) 100%);
+	background-position: 0 100%;
+	background-repeat: repeat-x;
+	background-size: 3px 3px;
+    color: #000;
+    text-decoration: underline;
+}
+.a-animation:hover {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23ff9800' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+    background-position: 0 100%;
+    background-size: auto 6px;
+    background-repeat: repeat-x;
+    color: #000;
+    text-decoration: none;
+  }
+
 /*Menu*/
 
 #menu{
@@ -108,4 +219,22 @@ body{
 
 #nouveau-projet img{
     width: 100%;
+}
+
+/*Animation glitch*/
+
+#container{
+    position: absolute;
+    margin-left: 81px;
+    width: 63%;
+    height: 100%;
+    background: url(../img/enregistrement.png);  
+    overflow: hidden;  
+}
+
+.box{
+    position: absolute;    
+    background: url(../img/enregistrement.png);    
+    background-attachment: fixed;   
+     
 }

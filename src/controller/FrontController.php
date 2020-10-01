@@ -45,7 +45,7 @@ class FrontController extends Controller
 
                 }else{
                     $this->session->set('missionId', $missionSuivante->getId());
-                    $this->session->set('valid_code', 'Bravo Agent, je suis fière de vous, mais votre mission continue : voir la mission <a href="index.php?route=choix_mission">'. htmlspecialchars($missionSuivante->getTitre()). '</a>');
+                    $this->session->set('valid_code', 'Bravo Agent, je suis fière de vous, mais votre mission continue : voir la mission <a class="a-animation" href="index.php?route=choix_mission">'. htmlspecialchars($missionSuivante->getTitre()). '</a>');
                 }
 
 

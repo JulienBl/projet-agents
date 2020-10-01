@@ -10,12 +10,12 @@
 
 <h1>Agent, veuillez vous connecter</h1>
 
-    <form method="post" action="index.php?route=login">
+    <form class="text-center" method="post" action="index.php?route=login">
         <label for="pseudo">Pseudo</label><br>
-        <input type="text" id="pseudo" name="pseudo" value="<?= isset($post) ? htmlspecialchars($post->get('pseudo')): ''; ?>"><br>
+        <input class="custom-input" type="text" id="pseudo" name="pseudo" value="<?= isset($post) ? htmlspecialchars($post->get('pseudo')): ''; ?>"><br>
         <label for="password">Mot de passe</label><br>
-        <input type="password" id="password" name="password"><br>
-        <input type="submit" value="Connexion" id="submit" name="submit">
+        <input class="custom-input" type="password" id="password" name="password"><br>
+        <input class="btn btn-agent" type="submit" value="Connexion" id="submit" name="submit">
     </form>
    
 </div>
