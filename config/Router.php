@@ -41,7 +41,7 @@ class Router
                     $this->frontController->accueil_agents($this->request->getPost());
                 }
                 elseif($route === 'choix_mission'){                     
-                    $this->frontController->choix_mission($this->request->getPost()->get('missionId'));
+                    $this->frontController->choix_mission($this->request->getPost());
                 }
                 elseif($route === 'demande_mission'){
                     $this->frontController->demande_mission($this->request->getPost());

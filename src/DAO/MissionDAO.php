@@ -16,6 +16,9 @@ class MissionDAO extends DAO
         if(isset($row['objectif']) == true){
             $mission->setobjectif($row['objectif']);
         }
+        if(isset($row['code']) == true){
+            $mission->setcode($row['code']);
+        }
               
         return $mission;
     }
@@ -41,6 +44,23 @@ class MissionDAO extends DAO
         $result->closeCursor();
         return $this->buildObject($mission);
     }
+
+
+    public function getMissionParIdPrecedente($missionIdPrecedente)
+    {
+        $sql = 'SELECT mission.id, mission.titre, mission.objectif, mission.code FROM mission  WHERE mission.id_mission_precedente = ?';
+        $result = $this->createQuery($sql, [$missionIdPrecedente]);
+        $mission = $result->fetch();
+        $result->closeCursor();
+        return $this->buildObject($mission);
+    }
+
+
+
+
+
+
+
     
     public function getMissionCommencement()
     {

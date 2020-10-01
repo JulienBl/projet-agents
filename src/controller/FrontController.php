@@ -3,6 +3,7 @@
 namespace App\src\controller;
 
 use App\config\Parameter;
+use ReflectionParameter;
 
 class FrontController extends Controller
 {
@@ -18,9 +19,41 @@ class FrontController extends Controller
             'missions' => $missions            
         ]);
     }
-    public function choix_mission($missionId)
-    {        
-        $mission = $this->missionDAO->getMission($missionId);        
+   
+    public function choix_mission(Parameter $post)        {
+
+
+           if( $post->get('missionId')){
+                  $mission = $this->missionDAO->getMission($post->get('missionId')); //Récupération depuis form                
+
+           }else{
+                 $mission = $this->missionDAO->getMission($this->session->get('missionId')); //Sinn récupération via l'url                 
+           }
+           $this->session->set('missionId', $mission->getId()); //pour ecraser la mission en cour pour définir la mission en cour
+        
+                 
+        
+        if($post->get('code')){          
+           
+
+            if($mission->getCode() === $post->get('code')){                
+
+                $missionSuivante = $this->missionDAO->getMissionParIdPrecedente($mission->getId());
+
+                if($missionSuivante->getId() == null){
+                    $this->session->set('valid_code', 'Bravo Agent, je suis fière de vous, votre mission est un succès ;)');
+
+                }else{
+                    $this->session->set('missionId', $missionSuivante->getId());
+                    $this->session->set('valid_code', 'Bravo Agent, je suis fière de vous, mais votre mission continue : voir la mission <a href="index.php?route=choix_mission">'. htmlspecialchars($missionSuivante->getTitre()). '</a>');
+                }
+
+
+            }else{
+                $this->session->set('error_code', 'Voyon Agent, nous ne voulons pas d\'erreur ici! Reprenez vous!');
+            }
+        }
+
         return $this->view->render('choix_mission', [
             'mission' => $mission,            
         ]);
@@ -46,6 +79,7 @@ class FrontController extends Controller
         }
         return $this->view->render('register');
     }
+
     public function accueil_agents(Parameter $post)
     {
         
