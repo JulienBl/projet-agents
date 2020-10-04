@@ -45,10 +45,16 @@ class Router
                 }
                 elseif($route === 'demande_mission'){
                     $this->frontController->demande_mission($this->request->getPost());
-                }               
-                /*elseif($route === 'editMission'){
+                }
+                elseif($route === 'addMission'){
+                    $this->backController->addMission($this->request->getPost());
+                }
+                elseif($route === 'editMission'){
                     $this->backController->editMission($this->request->getPost(), $this->request->getGet()->get('missionId'));
-                } */
+                }
+                elseif($route === 'deleteMission'){
+                    $this->backController->deleteMission($this->request->getGet()->get('missionId'));
+                }
                 elseif($route === 'login'){
                     $this->frontController->login($this->request->getPost());
                 }              

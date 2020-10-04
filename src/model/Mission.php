@@ -25,6 +25,16 @@ class Mission
     private $code;
 
     /**
+     * @var string
+     */
+    private $temps;
+
+    /**
+     * @var int
+     */
+    private $id_mission_precedente;
+
+    /**
      * @return int
      */
     public function getId()
@@ -86,5 +96,39 @@ class Mission
     public function setCode($code)
     {
         $this->code = $code;
-    }     
+    }
+    
+    
+ /**
+     * @return string
+     */
+    public function getTemps()
+    {
+        return $this->temps;
+    }
+
+    /**
+     * @param string $temps
+     */
+    public function setTemps($temps)
+    {
+        $this->temps = $temps;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getId_mission_precedente()
+    {
+        return $this->id_mission_precedente;
+    }
+
+    /**
+     * @param int $id_mission_precedente
+     */
+    public function setId_mission_precedente($id_mission_precedente)
+    {
+        $this->id_mission_precedente = $id_mission_precedente;
+    }
 }

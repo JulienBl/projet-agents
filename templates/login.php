@@ -3,7 +3,7 @@
 
 <div class="container container background-color-blanc">
 
-<div class="message">
+<div class="message message-login">
     <?php $this->title = "Connexion"; ?>
     <?= $this->session->show('error_login'); ?>
 </div>
@@ -12,9 +12,9 @@
 
     <form class="text-center" method="post" action="index.php?route=login">
         <label for="pseudo">Pseudo</label><br>
-        <input class="custom-input" type="text" id="pseudo" name="pseudo" value="<?= isset($post) ? htmlspecialchars($post->get('pseudo')): ''; ?>"><br>
+        <input class="custom-input" type="text" id="pseudo" name="pseudo" require value="<?= isset($post) ? htmlspecialchars($post->get('pseudo')): ''; ?>"><br>
         <label for="password">Mot de passe</label><br>
-        <input class="custom-input" type="password" id="password" name="password"><br>
+        <input class="custom-input" type="password" id="password" name="password" require><br>
         <input class="btn btn-agent" type="submit" value="Connexion" id="submit" name="submit">
     </form>
    

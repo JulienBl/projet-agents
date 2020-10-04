@@ -10,7 +10,7 @@ class BackController extends Controller
     {
         if(!$this->session->get('pseudo')) {
             $this->session->set('need_login', 'Vous devez vous connecter pour accéder à cette page');
-            header('Location: index.php?route=mission');
+            header('Location: index.php?route=demande_mission');
         } else {
             return true;
         }
@@ -29,10 +29,12 @@ class BackController extends Controller
 
     public function administration()
     {
-        if($this->checkAdmin()) {            
+        if($this->checkAdmin()) {     
+            $missions = $this->missionDAO->getMissions();       
             $users = $this->userDAO->getUsers();
 
-            return $this->view->render('administration', [                
+            return $this->view->render('administration', [
+                'missions' => $missions,                
                 'users' => $users
             ]);   
         }
@@ -94,5 +96,72 @@ class BackController extends Controller
             $this->session->set($param, 'Votre compte a bien été supprimé');
         }
         header('Location: index.php');
-    }   
+    }
+    
+
+
+
+    public function addMission(Parameter $post)
+    {
+        if($this->checkAdmin()) {
+            if ($post->get('submit')) {
+                $errors = $this->validation->validate($post, 'Mission');
+                if (!$errors) {
+                    $this->missionDAO->addMission($post, $this->session->get('id'));
+                    $this->session->set('add_mission', 'La nouvelle mission a bien été ajouté');
+                    header('Location: index.php?route=administration');
+                }
+                return $this->view->render('add_mission', [
+                    'post' => $post,
+                    'errors' => $errors
+                ]);
+            }
+            return $this->view->render('add_mission');
+        }
+    }
+
+    public function editMission(Parameter $post, $missionId)
+    {
+        if($this->checkAdmin()) {
+            $mission = $this->missionDAO->getMission($missionId);
+            if ($post->get('submit')) {
+                $errors = $this->validation->validate($post, 'Mission');
+                if (!$errors) {
+                    $this->missionDAO->editMission($post, $missionId, $this->session->get('id'));
+                    $this->session->set('edit_mission', 'La mission a bien été modifié');
+                    header('Location: index.php?route=administration');
+                }
+                return $this->view->render('edit_mission', [
+                    'post' => $post,
+                    'errors' => $errors
+                ]);
+
+            }
+            $post->set('id', $mission->getId());
+            $post->set('titre', $mission->getTitre());
+            $post->set('objectif', $mission->getObjectif());
+            $post->set('code', $mission->getCode());
+            $post->set('id_mission_precedente', $mission->getId_mission_precedente());
+
+            return $this->view->render('edit_mission', [
+                'post' => $post
+            ]);
+        }
+    }
+
+    public function deleteMission($missionId)
+    {
+        if($this->checkAdmin()) {
+            $this->missionDAO->deleteMission($missionId);
+            $this->session->set('delete_mission', 'La mission a bien été supprimé');
+            header('Location: index.php?route=administration');
+        }
+    }
+    
+
+
+
+
+
+
 }

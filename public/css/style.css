@@ -6,6 +6,7 @@ h1{
     color: #6C6C6C;
 }
 
+
 h2{
     margin-top: 15px;
     margin-bottom: 30px;    
@@ -117,7 +118,10 @@ ul{
     color: #000;
     text-decoration: none;
   }
-
+  .message-login,
+  .champ-vide{
+    color: red;
+}
 /*Menu*/
 
 #menu{
