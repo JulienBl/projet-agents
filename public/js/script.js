@@ -1,3 +1,19 @@
+/* Pop supression compte*/
+
+$(document).ready(function () {
+    $("#pop-supprimer-compte").click(function () {
+        
+        $("#supprimer-compte").css("display", "block")      
+
+        return false
+    })
+})
+
+
+
+
+/* GLITCH*/
+
 let bg = document.getElementById('container');
 let count = 20;
 for (let i = 0; i < count; i++){
@@ -15,3 +31,6 @@ for (let i = 0; i < glitch.length; i++){
     glitch[i].style.backgroundPosition= Math.floor(Math.random()*50) + 'px';
 }
 },150)
+
+
+

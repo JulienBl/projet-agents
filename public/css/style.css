@@ -1,4 +1,8 @@
 /*Perso*/
+.display-none{
+    display: none;
+}
+
 h1{
     margin-top: 25px;
     margin-bottom: 50px;
@@ -223,6 +227,16 @@ body{
 
 #nouveau-projet img{
     width: 100%;
+}
+/*Profile*/
+#profile a{
+   color: black;
+}
+#supprimer-compte{
+    position: absolute;
+    top: 278px;
+    left: 0;
+    right: 0;
 }
 
 /*Animation glitch*/
