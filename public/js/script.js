@@ -9,6 +9,16 @@ $(document).ready(function () {
     })
 })
 
+/* Pop supression mission*/
+
+$(document).ready(function () {
+    $("#pop-supprimer-mission").click(function () {
+        
+        $("#supprimer-mission").css("display", "block")      
+
+        return false
+    })
+})
 
 
 
@@ -31,6 +41,3 @@ for (let i = 0; i < glitch.length; i++){
     glitch[i].style.backgroundPosition= Math.floor(Math.random()*50) + 'px';
 }
 },150)
-
-
-

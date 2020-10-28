@@ -3,17 +3,17 @@
 
 
 
+
+
+<div class="container background-color-blanc" id="administration">
+<h1>Panneau d'administration des missions et Agents</h1>
+
 <div class="message">
     <?= $this->session->show('add_mission'); ?>
     <?= $this->session->show('edit_mission'); ?>
     <?= $this->session->show('delete_mission'); ?>   
     <?= $this->session->show('delete_user'); ?>
 </div>    
-
-
-<div class="container background-color-blanc" id="administration">
-<h1>Panneau d'administration des missions et Agents</h1>
-
 
 
 <h2>Missions</h2>
@@ -40,7 +40,7 @@
                 <td><?= htmlspecialchars($mission->getId_mission_precedente());?></td>
                 <td>
                     <a href="index.php?route=editMission&missionId=<?= $mission->getId(); ?>">Modifier</a>
-                    <a href="index.php?route=deleteMission&missionId=<?= $mission->getId(); ?>">Supprimer</a>
+                    <a href="index.php?route=deleteMission&missionId=<?= $mission->getId(); ?>" onclick="return(confirm('Etes-vous sûr de vouloir supprimer la mission ?'));">Supprimer</a>
                 </td>
             </tr>
             <?php
@@ -73,7 +73,7 @@
                     <?php
                     if($user->getRole() != 'admin') {
                     ?>
-                    <a href="index.php?route=deleteUser&userId=<?= $user->getId(); ?>">Supprimer</a>
+                    <a href="index.php?route=deleteUser&userId=<?= $user->getId(); ?>" onclick="return(confirm('Etes-vous sûr de vouloir supprimer l\'agent ?'));">Supprimer</a>
                     <?php }
                     else {
                         ?>

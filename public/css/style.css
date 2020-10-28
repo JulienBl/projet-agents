@@ -2,6 +2,9 @@
 .display-none{
     display: none;
 }
+.couleur-rouge{
+    color: red;
+}
 
 h1{
     margin-top: 25px;
@@ -255,4 +258,21 @@ body{
     background: url(../img/enregistrement.png);    
     background-attachment: fixed;   
      
+}
+
+/*administration*/
+#administration a{
+    color: yellowgreen;
+
+}
+#administration a:hover{
+    color: black;
+    text-decoration:none; 
+
+}
+#administration #supprimer-mission{
+    position: absolute;
+    top: 278px;
+    left: 0;
+    right: 0;
 }

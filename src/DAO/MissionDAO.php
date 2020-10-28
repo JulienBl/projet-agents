@@ -4,6 +4,7 @@ namespace App\src\DAO;
 
 use App\config\Parameter;
 use App\src\model\Mission;
+use Exception;
 
 class MissionDAO extends DAO
 {
@@ -77,15 +78,21 @@ class MissionDAO extends DAO
     
     public function addMission(Parameter $post)
     {
-        $sql = 'INSERT INTO mission (titre, objectif, code, temps, id_mission_precedente) VALUES (?, ?, NOW(), ?)';
-        $this->createQuery($sql, [$post->get('title')]);
+        $sql = "INSERT INTO mission (titre, objectif, code, temps, id_mission_precedente) VALUES (?,?,?,?,?)";
+        $this->createQuery($sql, [
+            $post->get('titre'),
+            $post->get('objectif'),
+            $post->get('code'),
+            $post->get('temps'),
+            $post->get('id_mission_precedente')
+        ]);
     }
 
     public function editMission(Parameter $post, $missionId)
     {
         $sql = 'UPDATE mission SET titre=:titre, objectif=:objectif, code=:code, temps=:temps, id_mission_precedente=:id_mission_precedente WHERE id=:missionId';
         $this->createQuery($sql, [
-            'titre' => $post->get('title'),
+            'titre' => $post->get('titre'),
             'objectif' => $post->get('objectif'),
             'code' => $post->get('code'),
             'temps' => $post->get('temps'),

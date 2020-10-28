@@ -105,8 +105,13 @@ class BackController extends Controller
     {
         if($this->checkAdmin()) {
             if ($post->get('submit')) {
+               
                 $errors = $this->validation->validate($post, 'Mission');
+                 
                 if (!$errors) {
+                    if($post->get("id_mission_precedente") == "")
+                        $post->set("id_mission_precedente", null);
+
                     $this->missionDAO->addMission($post, $this->session->get('id'));
                     $this->session->set('add_mission', 'La nouvelle mission a bien été ajouté');
                     header('Location: index.php?route=administration');
@@ -127,9 +132,12 @@ class BackController extends Controller
             if ($post->get('submit')) {
                 $errors = $this->validation->validate($post, 'Mission');
                 if (!$errors) {
+                    if($post->get("id_mission_precedente") == "")
+                        $post->set("id_mission_precedente", null);
+
                     $this->missionDAO->editMission($post, $missionId, $this->session->get('id'));
                     $this->session->set('edit_mission', 'La mission a bien été modifié');
-                    header('Location: index.php?route=administration');
+                    //header('Location: index.php?route=administration');
                 }
                 return $this->view->render('edit_mission', [
                     'post' => $post,
