@@ -25,6 +25,19 @@ $submit = $route === 'addMission' ? 'Envoyer' : 'Mettre à jour';
         <label for="id_mission_precedente">Id mission precedente (laisser à nul si 1er mission)</label><br>
         <input class="id_mission_precedente" type="number" id="id_mission_precedente" name="id_mission_precedente" value="<?= isset($post) ? htmlspecialchars($post->get('id_mission_precedente')): ''; ?>"><br>
         <?= isset($errors['id_mission_precedente']) ? $errors['id_mission_precedente'] : ''; ?>
+        <br/> <br/>
+
+        <input type="hidden" name="MAX_FILE_SIZE" value="250000" />
+        <input type="file" name="fic" size=50 />
+        <input type="submit" value="Envoyer" />
+
+        <br/> <br/> <br/>
+
+
+
+
+
+
         <input type="submit" value="<?= $submit; ?>" id="submit" name="submit">
     </form>
 

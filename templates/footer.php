@@ -9,7 +9,14 @@
                 <ul>
                     <li><h3>MENU</h3></li>
                     <li><a class="nav-link" href="index.php">Accueil</a></li>
-                    <li><a class="nav-link" href="index.php?route=demande_mission">Mission</a></li>                    
+                    <?php 
+                    //Si le membre est connecté on affiche le menu-Mission
+                    if(isset($_SESSION['login'])){ ?> 
+                         <li>
+                            <a class="nav-link" href="index.php?route=demande_mission">Mission</a>
+                        </li>  
+                    <?php }?>      
+                                      
                     <li><a class="nav-link" href="index.php?route=register">La vrai page d'enregistrement</a></li>                                    
                 </ul>
             </div>           

@@ -26,13 +26,16 @@ class MissionDAO extends DAO
         if(isset($row['id_mission_precedente']) == true){
             $mission->setId_mission_precedente($row['id_mission_precedente']);
         }
+        if(isset($row['image']) == true){
+            $mission->setImage($row['image']);
+        }
               
         return $mission;
     }
 
     public function getMissions()
     {
-        $sql = 'SELECT mission.id, mission.titre, mission.objectif, mission.code, mission.temps, mission.id_mission_precedente FROM mission  ORDER BY mission.id DESC';
+        $sql = 'SELECT mission.id, mission.titre, mission.objectif, mission.code, mission.temps, mission.id_mission_precedente, mission.image FROM mission  ORDER BY mission.id DESC';
         $result = $this->createQuery($sql);
         $missions = [];
         foreach ($result as $row){
@@ -45,7 +48,7 @@ class MissionDAO extends DAO
 
     public function getMission($missionId)
     {
-        $sql = 'SELECT mission.id, mission.titre, mission.objectif, mission.code, mission.temps, mission.id_mission_precedente FROM mission  WHERE mission.id = ?';
+        $sql = 'SELECT mission.id, mission.titre, mission.objectif, mission.code, mission.temps, mission.id_mission_precedente, mission.image FROM mission  WHERE mission.id = ?';
         $result = $this->createQuery($sql, [$missionId]);
         $mission = $result->fetch();
         $result->closeCursor();
@@ -78,28 +81,69 @@ class MissionDAO extends DAO
     
     public function addMission(Parameter $post)
     {
-        $sql = "INSERT INTO mission (titre, objectif, code, temps, id_mission_precedente) VALUES (?,?,?,?,?)";
+        $sql = "INSERT INTO mission (titre, objectif, code, temps, id_mission_precedente, image) VALUES (?,?,?,?,?,?)";
+        $ret        = false;
+        $image   = '';       
+        $ret        = is_uploaded_file($_FILES['fic']['tmp_name']);
+        if (!$ret) {
+            echo "Problème de transfert";
+            return false;
+        } else {
+            // Le fichier a bien été reçu            
+            $image = file_get_contents($_FILES['fic']['tmp_name']);
+            $sql = "INSERT INTO mission (" .
+                "image " .
+                ") VALUES (" .                
+                "'" . addslashes ($image) . "') "; // échapper le contenu binaire
+            
+            return true;
+        }
+
+
+        
         $this->createQuery($sql, [
             $post->get('titre'),
             $post->get('objectif'),
             $post->get('code'),
             $post->get('temps'),
-            $post->get('id_mission_precedente')
+            $post->get('id_mission_precedente'),
+            $post->get('image')
         ]);
     }
 
     public function editMission(Parameter $post, $missionId)
     {
-        $sql = 'UPDATE mission SET titre=:titre, objectif=:objectif, code=:code, temps=:temps, id_mission_precedente=:id_mission_precedente WHERE id=:missionId';
+        $sql = 'UPDATE mission SET titre=:titre, objectif=:objectif, code=:code, temps=:temps, id_mission_precedente=:id_mission_precedente, image=:image WHERE id=:missionId';
+        $ret        = false;
+        $image   = '';       
+        $ret        = is_uploaded_file($_FILES['fic']['tmp_name']);
+        if (!$ret) {
+            echo "Problème de transfert";
+            return false;
+        } else {
+            // Le fichier a bien été reçu            
+            $image = file_get_contents($_FILES['fic']['tmp_name']);
+            $sql = "INSERT INTO mission (" .
+                "image " .
+                ") VALUES (" .                
+                "'" . addslashes ($image) . "') "; // échapper le contenu binaire
+            
+            return true;
+        }
+       
+       
         $this->createQuery($sql, [
             'titre' => $post->get('titre'),
             'objectif' => $post->get('objectif'),
             'code' => $post->get('code'),
             'temps' => $post->get('temps'),
-            'id_mission_precedente' => $post->get('id_mission_precedente'),            
+            'id_mission_precedente' => $post->get('id_mission_precedente'),
+            'image' => $post->get('image'),                
             'missionId' => $missionId
         ]);
     }
+
+
 
     public function deleteMission($missionId)
     {   

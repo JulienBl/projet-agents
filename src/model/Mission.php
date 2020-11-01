@@ -34,6 +34,11 @@ class Mission
      */
     private $id_mission_precedente;
 
+     /**
+     * @var blob
+     */
+    private $image;
+
     /**
      * @return int
      */
@@ -130,5 +135,22 @@ class Mission
     public function setId_mission_precedente($id_mission_precedente)
     {
         $this->id_mission_precedente = $id_mission_precedente;
+    }
+
+
+    /**
+     * @return blob
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param blob $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
     }
 }

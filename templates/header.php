@@ -15,9 +15,15 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="index.php"> Accueil</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="index.php?route=demande_mission"> Mission</a>
-                                        </li>
+                                        <?php
+ 
+                                        //Si le membre est connecté on affiche le menu-Mission
+                                        if(isset($_SESSION['login'])){ ?> 
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="index.php?route=demande_mission"> Mission </a> 
+                                            </li> 
+                                        <?php }?>                                        
+                                      
                                         <li class="nav-item">
                                             <a class="nav-link" href="index.php?route=soon"> Prochainement</a>
                                         </li>  

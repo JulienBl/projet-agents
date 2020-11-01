@@ -22,9 +22,14 @@
 
         <div class=" menu-photo-agent">
             <div class="row text-center">
-                <div class="col-12 col-md-4 container-agent">                            
-                    <a href="index.php?route=demande_mission"><img src="img/mission-secret.png" alt="Mission secret"></a>
-                </div>      
+
+            <?php 
+            //Si le membre est connecté on affiche le menu-Mission
+            if(isset($_SESSION['login'])){ ?> 
+                <div class="col-12 col-md-4 container-agent">
+                <a href="index.php?route=demande_mission"><img src="img/mission-secret.png" alt="Mission secret"></a>
+                    </div>   
+            <?php }?>                     
 
                 <div class="col-12 col-md-4 container-agent">                            
                     <a href="index.php?route=soon"><img src="img/prochainement.jpg" alt="Prochainement" id="img-prochainement"></a>

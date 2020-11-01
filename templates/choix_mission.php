@@ -6,6 +6,7 @@
 
     <h2><?= htmlspecialchars($mission->getTitre()); ?></h2>
     <p><?= htmlspecialchars($mission->getObjectif()); ?></p>
+    <p><?= htmlspecialchars($mission->getImage()); ?></p>
     <?= $this->session->show('error_code'); ?>
 <?= $this->session->show('valid_code'); ?>
     <form method="post" action="index.php?route=choix_mission">
