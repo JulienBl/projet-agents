@@ -139,6 +139,7 @@ class BackController extends Controller
                     $this->session->set('edit_mission', 'La mission a bien été modifié');
                     //header('Location: index.php?route=administration');
                 }
+                
                 return $this->view->render('edit_mission', [
                     'post' => $post,
                     'errors' => $errors
@@ -150,6 +151,7 @@ class BackController extends Controller
             $post->set('objectif', $mission->getObjectif());
             $post->set('code', $mission->getCode());
             $post->set('id_mission_precedente', $mission->getId_mission_precedente());
+            $post->set('image', $mission->getImage());
 
             return $this->view->render('edit_mission', [
                 'post' => $post

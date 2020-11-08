@@ -35,7 +35,7 @@ class Mission
     private $id_mission_precedente;
 
      /**
-     * @var blob
+     * @var mediumblob
      */
     private $image;
 
@@ -139,7 +139,7 @@ class Mission
 
 
     /**
-     * @return blob
+     * @return mediumblob
      */
     public function getImage()
     {
@@ -147,7 +147,7 @@ class Mission
     }
 
     /**
-     * @param blob $image
+     * @param mediumblob $image
      */
     public function setImage($image)
     {

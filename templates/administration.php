@@ -31,8 +31,8 @@
         foreach ($missions as $mission)
         {
             ?>
-            <tr class="separation">
-                <td><?= htmlspecialchars($mission->getId());?></td>
+            <tr class="separation">            
+                <td><?= htmlspecialchars($mission->getId());?></td>                
                 <td><?= htmlspecialchars($mission->getTitre());?></td>
                 <td><?= substr(htmlspecialchars($mission->getObjectif()), 0, 150);?></td>
                 <td><?= htmlspecialchars($mission->getCode());?></td>
@@ -41,8 +41,9 @@
                 <td>
                     <a href="index.php?route=editMission&missionId=<?= $mission->getId(); ?>">Modifier</a>
                     <a href="index.php?route=deleteMission&missionId=<?= $mission->getId(); ?>" onclick="return(confirm('Etes-vous sûr de vouloir supprimer la mission ?'));">Supprimer</a>
-                </td>
+                </td>                
             </tr>
+            
             <?php
         }
         ?>

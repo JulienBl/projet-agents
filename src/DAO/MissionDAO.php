@@ -58,7 +58,7 @@ class MissionDAO extends DAO
 
     public function getMissionParIdPrecedente($missionIdPrecedente)
     {
-        $sql = 'SELECT mission.id, mission.titre, mission.objectif, mission.code FROM mission  WHERE mission.id_mission_precedente = ?';
+        $sql = 'SELECT mission.id, mission.titre, mission.objectif, mission.code, mission.image FROM mission  WHERE mission.id_mission_precedente = ?';
         $result = $this->createQuery($sql, [$missionIdPrecedente]);
         $mission = $result->fetch();
         $result->closeCursor();
@@ -82,21 +82,16 @@ class MissionDAO extends DAO
     public function addMission(Parameter $post)
     {
         $sql = "INSERT INTO mission (titre, objectif, code, temps, id_mission_precedente, image) VALUES (?,?,?,?,?,?)";
-        $ret        = false;
-        $image   = '';       
-        $ret        = is_uploaded_file($_FILES['fic']['tmp_name']);
+
+        $ret = false;
+        $image = '';       
+        $ret = is_uploaded_file($_FILES['fic']['tmp_name']);
         if (!$ret) {
             echo "Problème de transfert";
-            return false;
         } else {
             // Le fichier a bien été reçu            
             $image = file_get_contents($_FILES['fic']['tmp_name']);
-            $sql = "INSERT INTO mission (" .
-                "image " .
-                ") VALUES (" .                
-                "'" . addslashes ($image) . "') "; // échapper le contenu binaire
             
-            return true;
         }
 
 
@@ -107,28 +102,25 @@ class MissionDAO extends DAO
             $post->get('code'),
             $post->get('temps'),
             $post->get('id_mission_precedente'),
-            $post->get('image')
+            $image
         ]);
     }
 
     public function editMission(Parameter $post, $missionId)
     {
         $sql = 'UPDATE mission SET titre=:titre, objectif=:objectif, code=:code, temps=:temps, id_mission_precedente=:id_mission_precedente, image=:image WHERE id=:missionId';
-        $ret        = false;
-        $image   = '';       
-        $ret        = is_uploaded_file($_FILES['fic']['tmp_name']);
+
+        $ret = false;
+        $image  = '';       
+        $ret = is_uploaded_file($_FILES['fic']['tmp_name']);
         if (!$ret) {
             echo "Problème de transfert";
-            return false;
-        } else {
-            // Le fichier a bien été reçu            
-            $image = file_get_contents($_FILES['fic']['tmp_name']);
-            $sql = "INSERT INTO mission (" .
-                "image " .
-                ") VALUES (" .                
-                "'" . addslashes ($image) . "') "; // échapper le contenu binaire
             
-            return true;
+        } else {
+            // Le fichier a bien été reçu  
+            $image = file_get_contents($_FILES['fic']['tmp_name']);
+              //$image = file_get_contents("https://i.imgur.com/VEIKbp0.png");               
+            //echo $image;
         }
        
        
@@ -138,7 +130,8 @@ class MissionDAO extends DAO
             'code' => $post->get('code'),
             'temps' => $post->get('temps'),
             'id_mission_precedente' => $post->get('id_mission_precedente'),
-            'image' => $post->get('image'),                
+            //'image' => addslashes($image),                
+            'image' => $image,
             'missionId' => $missionId
         ]);
     }

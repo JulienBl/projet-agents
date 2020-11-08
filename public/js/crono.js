@@ -28,38 +28,6 @@
 
 
 
-var numb = localStorage.getItem('the_cookie') || 30;
-$(window).unload(function () {
 
-    localStorage.setItem('the_cookie', numb);
-
-});
-
-$(document).ready(function () {
-
-    var numba = 100;
-
-    function comptage() {
-
-        setTimeout(comptage, 1000);
-        $('#test').html(numb);
-        $("#progressbar").progressbar({ value: numba });
-
-        numb--;
-        numba = numba - (numba / numb);
-
-
-        if (numb < 0 && numba < 0) {
-
-            numb = 0;
-            numba = 0;
-        }
-
-
-
-    }
-    comptage();
-
-});
 
 
